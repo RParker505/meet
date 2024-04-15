@@ -3,6 +3,8 @@
 ## About the App
 The Meet app is a serverless, progressive web application (PWA) built with React using a test-driven development (TDD) technique. The application uses the Google Calendar API to fetch upcoming events.
 
+The Meet App uses [serverless technology](https://www.serverless.com/) to keep backend maintenance at a minimum while allowing for scalability and a consistently working app. Serverless technology allows users to quickly search and view event details in their area that are dynamically loaded via the Google Calendar API. Serverless functions are created via AWS Lambda, which is able to run the code quickly and with high availability.
+
 ## Key Features
 1. Filter Events by City
 2. Show/Hide Event Details
