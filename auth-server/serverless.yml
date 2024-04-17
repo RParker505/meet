@@ -6,7 +6,7 @@
 # Happy Coding!
 
 service: auth-server
-frameworkVersion: "3"
+
 provider:
   name: aws
   runtime: nodejs18.x
