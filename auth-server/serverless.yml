@@ -18,8 +18,8 @@ provider:
     CALENDAR_ID: ${file(config.json):CALENDAR_ID}
 functions:
   getAuthURL:
-  handler: handler.getAuthURL
-  events:
-    - http:
-        path: api/get-auth-url
-        method: get
+    handler: handler.getAuthURL
+    events:
+       - http:
+          path: api/get-auth-url
+          method: get
