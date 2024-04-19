@@ -42,7 +42,7 @@
       </main>
 
       <script type="text/javascript">
-        // --------------------- STEP 1
+        // --------------------- STEP 1: Log into Google and authorize Meet App
         const getAuthUrlButton = document.getElementById("getAuthUrlButton");
         const resultElement = document.getElementById("result");
         const resultLink = document.getElementById("authURL");
@@ -64,7 +64,7 @@
         };
         // --------------------- END OF STEP 1
 
-        // --------------------- STEP 2
+        // --------------------- STEP 2: Accept auth code and exchange for access token
         const codeValue = document.getElementById("code");
         const getAccessToken = document.getElementById("getToken");
         const accessTokenElement = document.getElementById("accessToken");
