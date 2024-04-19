@@ -74,3 +74,7 @@ module.exports.getAccessToken = async (event) => {
       };
     });
 };
+
+module.exports.getCalendarEvents = async (event) => {
+  return new Promise((resolve, reject) => {}
+};
