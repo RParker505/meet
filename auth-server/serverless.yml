@@ -18,14 +18,14 @@ provider:
     CALENDAR_ID: ${file(config.json):CALENDAR_ID}
 functions:
   getAuthURL:
-    handler: handler.getAuthURL
-    events:
+    handler: handler.getAuthURL # points to file containing the function logic
+    events: # specifies events that will trigger the function code
        - http:
           path: api/get-auth-url
           method: get
   getAccessToken:
-    handler: handler.getAccessToken
-    events:
+    handler: handler.getAccessToken # points to file containing the function logic
+    events: # specifies events that will trigger the function code
         - http:
             path: api/token/{code}
             method: get
