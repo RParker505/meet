@@ -15,6 +15,7 @@ const oAuth2Client = new google.auth.OAuth2(
 );
 
 module.exports.getAuthURL = async () => {
+  // returns an authorization URL that your users can visit to authorize the app and get their USER_AUTHORIZATION_CODE
   /**
    *
    * Scopes array is passed to the `scope` option. 
@@ -43,7 +44,7 @@ module.exports.getAccessToken = async (event) => {
 
   return new Promise((resolve, reject) => {
     /**
-     *  Exchange authorization code for access token with a “callback” after the exchange,
+     *  Exchange authorization code for 24-hr access token with a “callback” after the exchange,
      *  The callback in this case is an arrow function with the results as parameters: “error” and “response”
      */
 
