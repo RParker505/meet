@@ -96,7 +96,7 @@
         // -- STEP 3: Get events from Google Calendar API
         const getEvents = document.getElementById("getEvents");
         const events = document.getElementById("events");
-        const getCalendarEvents = "https://o368pg1ald.execute-api.us-east-2.amazonaws.com/dev/api/get-events/";
+        const getCalendarEvents = "https://o368pg1ald.execute-api.us-east-2.amazonaws.com/dev/api/get-events";
 
         getEvents.onclick = function () {
             const { access_token } = JSON.parse(accessTokenElement.innerText);
