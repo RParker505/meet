@@ -12,6 +12,7 @@ const CitySearch = () => {
             type="text"
             className="city"
             placeholder="Search for a city"
+            onFocus={() => setShowSuggestions(true)}
         />
         {/* if showSuggestions is true, render a ul element with a suggestions list. Otherwise, render a null */}
         {showSuggestions ? <ul className="suggestions"></ul> : null}
