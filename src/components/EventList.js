@@ -1,8 +1,12 @@
 // src/components/EventList.js
 
-const EventList = () => {
+import Event from './Event';
+
+const EventList = ({events}) => {
     return (
-      <ul id="event-list"></ul>//unorder list is assigned 'list' role by default
+      <ul id="event-list">
+        {events.map(event => <Event event={event} />)}
+      </ul>//unordered list is assigned 'list' role by default
     );
   }
   
