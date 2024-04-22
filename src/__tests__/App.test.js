@@ -11,7 +11,7 @@ describe('<App /> component', () => {
       });
 
     test('render CitySearch', () => {
-      const AppDOM = render().container.firstChild;
+      const AppDOM = render(<App />).container.firstChild;
       expect(AppDOM.querySelector('#city-search')).toBeInTheDocument();
       });
 
