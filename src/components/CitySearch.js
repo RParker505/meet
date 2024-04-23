@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const CitySearch = (allLocations) => {
+const CitySearch = ({allLocations}) => {
     //showSuggestions is false by default - hide suggestion list to start
     const [showSuggestions, setShowSuggestions] = useState(false);
     //set state of input field so you can access its value
