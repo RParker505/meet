@@ -48,22 +48,18 @@ describe('<Event /> component', () => {
         await user.click(button);
         const details = EventComponent.container.querySelector('.details');
         expect(details).toBeInTheDocument();
-    })
+    });
 
-    //Test that event details are not visible on initial render
-
-    //Test that clicking on event element triggers state change or class change to expand element
-
-    //Test that event details are visible after element click
-
-    //Test that icons/text changes in expanded state display correctly
-
-    //Test that clicking element in expanded state triggers state change or class change to collapse element
-
-    //Test that event details are hidden after event is clicked
-
-    //Test that icons/text changes revert after collapse
-
-    // If toggle, check that toggle changes state correctly
+    //Test that description is hidden when button is reclicked
+    test('hides event description when button is reclicked', async() => {
+        const user = userEvent.setup();
+        const showDetailsbutton = EventComponent.queryByText('Show Details');
+        const hideDetailsbutton = EventComponent.queryByText('Hide Details');
+        await user.click(showDetailsbutton);
+        const details = EventComponent.container.querySelector('.details');
+        expect(details).toBeInTheDocument();
+        await user.click(hideDetailsbutton);
+        expect(details).not.toBeInTheDocument();
+    });
 
 });
