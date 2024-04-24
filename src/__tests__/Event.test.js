@@ -39,6 +39,15 @@ describe('<Event /> component', () => {
     test('hides event details by default', () => {
         const eventDetails = EventComponent.container.querySelector('.details');
         expect(eventDetails).not.toBeInTheDocument();
+    });
+
+    //Test that event description loads when user clicks details button
+    test('shows event description when details button is clicked', async() => {
+        const user = userEvent.setup();
+        const button = EventComponent.queryByText('Show Details');
+        await user.click(button);
+        const details = EventComponent.container.querySelector('.details');
+        expect(details).toBeInTheDocument();
     })
 
     //Test that event details are not visible on initial render
