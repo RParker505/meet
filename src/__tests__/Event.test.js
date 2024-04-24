@@ -33,6 +33,12 @@ describe('<Event /> component', () => {
     //Test that 'show details' button is visible by default
     test('renders button to expand details', () => {
         expect (EventComponent.queryByText('Show Details')).toBeInTheDocument();
+    });
+
+    //Test that extra details are hidden by default
+    test('hides event details by default', () => {
+        const eventDetails = EventComponent.container.querySelector('.details');
+        expect(eventDetails).not.toBeInTheDocument();
     })
 
     //Test that event details are not visible on initial render
