@@ -1,9 +1,34 @@
 import { render } from '@testing-library/react';
+import userEvent from "@testing-library/user-event";
+
 import Event from '../components/Event';
+import { getEvents } from '../api';
 
 describe('<Event /> component', () => {
 
-    //Test that event element is rendered
+    let EventComponent;
+    let allEvents;
+    beforeAll(async () => {
+      allEvents = await getEvents();
+    })
+    beforeEach(() => {
+      EventComponent = render(<Event event={allEvents[0]}/>);
+    })
+
+    //Test that event element has title
+    test('renders event title', () => {
+        expect (EventComponent.queryByText(allEvents[0].summary)).toBeInTheDocument();
+    });
+
+    //Test that event has a start time
+    test('renders event start time', () => {
+        expect (EventComponent.queryByText(allEvents[0].created)).toBeInTheDocument();
+    });
+
+    //Test that event has a location
+    test('renders event location', () => {
+        expect (EventComponent.queryByText(allEvents[0].location)).toBeInTheDocument();
+    });
 
     //Test that event details are not visible on initial render
 
@@ -21,4 +46,4 @@ describe('<Event /> component', () => {
 
     // If toggle, check that toggle changes state correctly
 
-}
+});

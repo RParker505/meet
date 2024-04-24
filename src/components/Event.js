@@ -1,8 +1,11 @@
 // src/components/Event.js
 
-const Event = () => {
+const Event = ({event}) => {
     return (
-      <li></li>
+      <li className="event">
+        <h2>{event.summary}</h2>
+        <p>{event.created}</p>
+      </li>
     );
   }
   
