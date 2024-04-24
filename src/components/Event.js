@@ -6,6 +6,7 @@ const Event = ({event}) => {
         <h2>{event.summary}</h2>
         <p>{event.created}</p>
         <p>{event.location}</p>
+        <button className="DetailsButton">Show Details</button>
       </li>
     );
   }

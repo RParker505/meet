@@ -30,6 +30,11 @@ describe('<Event /> component', () => {
         expect (EventComponent.queryByText(allEvents[0].location)).toBeInTheDocument();
     });
 
+    //Test that 'show details' button is visible by default
+    test('renders button to expand details', () => {
+        expect (EventComponent.queryByText('Show Details')).toBeInTheDocument();
+    })
+
     //Test that event details are not visible on initial render
 
     //Test that clicking on event element triggers state change or class change to expand element
