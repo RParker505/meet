@@ -2,7 +2,13 @@
 
 const NumberOfEvents = () => {
     return (
-        <div id="number-of-events"></div>
+        <div id="number-of-events">
+            <input
+                type="text"
+                className="eventNumber"
+            >
+            </input>
+        </div>
     );
 }
 
