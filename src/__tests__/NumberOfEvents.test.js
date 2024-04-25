@@ -16,4 +16,10 @@ describe('<NumberOfEvents /> component', () => {
         expect(eventNumberBox).toBeInTheDocument();
     });
 
+    //Check that default number in textbox is 32
+    test('defaults to 32 events', () => {
+        const eventNumberBox = NumberOfEventsComponent.queryByRole('textbox');
+        expect(eventNumberBox).toHaveValue('32');
+    })
+
 })
