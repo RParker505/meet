@@ -6,6 +6,7 @@ const NumberOfEvents = () => {
             <input
                 type="text"
                 className="eventNumber"
+                defaultValue="32"
             >
             </input>
         </div>
