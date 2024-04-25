@@ -16,7 +16,7 @@ describe('<EventList /> component', () => {
       expect(EventListComponent.queryByRole("list")).toBeInTheDocument();
   });
 
-    //test will pass if list renders with 4 listitem elements
+    //test will pass if list renders with all mock data from getEvents
     test('renders correct number of events', async () => {
       const allEvents = await getEvents();
       EventListComponent.rerender(<EventList events={allEvents} />);
