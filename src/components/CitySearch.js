@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 
-const CitySearch = ({allLocations}) => {
+const CitySearch = ({allLocations, setCurrentCity}) => {
     //showSuggestions is false by default - hide suggestion list to start
     const [showSuggestions, setShowSuggestions] = useState(false);
     //set state of input field so you can access its value
@@ -28,6 +28,7 @@ const CitySearch = ({allLocations}) => {
       const value = event.target.textContent;
       setQuery(value);
       setShowSuggestions(false); // to hide the list
+      setCurrentCity(value); // change the city
     };
     
     return (
