@@ -10,8 +10,8 @@ describe('<CitySearch /> component', () => {
 
     let CitySearchComponent;
     beforeEach(() => {
-      CitySearchComponent = render(<CitySearch />);
-    })
+      CitySearchComponent = render(<CitySearch allLocations={[]} />);
+    });
     
     //Check for element with 'textbox' role and 'city' class
     test('renders text input', () => {
