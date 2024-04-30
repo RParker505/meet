@@ -1,6 +1,6 @@
 // src/components/CitySearch.js
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const CitySearch = ({allLocations}) => {
     //showSuggestions is false by default - hide suggestion list to start
@@ -9,6 +9,10 @@ const CitySearch = ({allLocations}) => {
     const [query, setQuery] = useState("");
     //suggestions will hold the list of suggestions
     const [suggestions, setSuggestions] = useState([]);
+
+    useEffect(() => {
+      setSuggestions(allLocations);
+    }, [`${allLocations}`]);
 
     const handleInputChanged = (event) => {
       const value = event.target.value;
