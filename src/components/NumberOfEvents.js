@@ -13,7 +13,7 @@ const NumberOfEvents = ({setCurrentNOE}) => {
             // Default to a minimum of 1 event if invalid input
             setCurrentNOE(1);
         }
-    };
+    }
 
 
     return (
