@@ -1,6 +1,6 @@
 // src/__tests__/App.test.js
 
-import { render, within } from '@testing-library/react';
+import { render, within, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import App from '../App';
@@ -73,10 +73,13 @@ describe('<App /> integration', () => {
 
     await user.type(NumberOfEventsInput, '{backspace}{backspace}10');
 
-    const EventListDOM = AppDOM.querySelector('#event-list');
-    const allRenderedEventItems =
-      within(EventListDOM).queryAllByRole('listitem');
-    expect(allRenderedEventItems.length).toEqual(10);
+    await waitFor(() => {
+      const eventListDOM = AppDOM.querySelector('#event-list');
+      const allRenderedEventItems = within(eventListDOM).queryAllByRole('listitem');
+
+      // Assert that the number of rendered event items matches the user input (10)
+      expect(allRenderedEventItems.length).toEqual(10);
+    });
 
   });
 
