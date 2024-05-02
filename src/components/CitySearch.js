@@ -33,6 +33,7 @@ const CitySearch = ({allLocations, setCurrentCity}) => {
     
     return (
       <div id="city-search">
+        <p>Browse events by city</p>
         <input
             type="text"
             className="city"
