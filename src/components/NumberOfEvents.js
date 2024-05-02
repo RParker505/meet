@@ -18,7 +18,7 @@ const NumberOfEvents = ({setCurrentNOE}) => {
 
     return (
         <div id="number-of-events">
-            <p>How many events would you like to see?</p>
+            <p><b>How many events would you like to see?</b></p>
             <input
                 type="text"
                 className="eventNumber"
