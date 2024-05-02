@@ -18,7 +18,7 @@ const App = () => {
 
   useEffect(() => {
     fetchData();
-  }, [currentCity, setCurrentNOE]);//callback will be called whenever it detects a change in currentCity or number of events
+  }, [currentCity, currentNOE]);//callback will be called whenever it detects a change in currentCity or number of events
 
   const fetchData = async () => {
     const allEvents = await getEvents();
