@@ -18,6 +18,7 @@ const NumberOfEvents = ({setCurrentNOE}) => {
 
     return (
         <div id="number-of-events">
+            <p>How many events would you like to see?</p>
             <input
                 type="text"
                 className="eventNumber"
