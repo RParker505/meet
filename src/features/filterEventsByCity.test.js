@@ -12,7 +12,7 @@ defineFeature(feature, test => {
   
       });
   
-      then('the user should see the list of upcoming events.', () => {
+      then('the user should see the list of all upcoming events.', () => {
   
       });
     });
@@ -26,7 +26,7 @@ defineFeature(feature, test => {
     
         });
     
-        then('the user should receive a list of cities (suggestions) that match what they’ve typed.', () => {
+        then('the user should recieve a list of cities (suggestions) that match what they’ve typed.', () => {
     
         });
       });
@@ -48,7 +48,7 @@ defineFeature(feature, test => {
     
         });
 
-        and('the user should receive a list of upcoming events in that city', () => {
+        and('the user should receive a list of upcoming events in that city.', () => {
 
         });
 
