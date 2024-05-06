@@ -30,16 +30,26 @@ defineFeature(feature, test => {
     });
 
     test('User can change the number of events displayed.', ({ given, when, then }) => {
+        let AppComponent;
         given('the user is viewing the main page', () => {
-
+            AppComponent = render(<App />);
         });
 
-        when('the user selects a number of events to display', () => {
-
+        when('the user selects a number of events to display', async () => {
+            const user = userEvent.setup();
+            const AppDOM = AppComponent.container.firstChild;
+            const NumberOfEventsDOM = AppDOM.querySelector('#number-of-events');
+            const numberOfEventsBox = within(NumberOfEventsDOM).queryByRole('textbox');
+            await user.type(numberOfEventsBox, '{backspace}{backspace}10');
         });
 
-        then('the app will display the selected number of events.', () => {
-
+        then('the app will display the selected number of events.', async () => {
+            const AppDOM = AppComponent.container.firstChild;
+            const EventListDOM = AppDOM.querySelector('#event-list');
+            await waitFor(() => {
+                const EventListItems = within(EventListDOM).queryAllByRole('listitem');
+                expect(EventListItems.length).toBe(10);
+              });
         });
     });
 
