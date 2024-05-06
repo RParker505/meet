@@ -32,16 +32,23 @@ defineFeature(feature, test => {
     });
 
     test('User can expand an event to see details.', ({ given, when, then }) => {
-        given('the user is viewing a list of events', () => {
-
+        let EventComponent;
+        let allEvents;
+        given('the user is viewing a list of events', async () => {
+            allEvents = await getEvents();
+            EventComponent = render(<Event event={allEvents[0]}/>);
+            expect(EventComponent.container.querySelector('.details')).not.toBeInTheDocument();
         });
 
-        when('the user clicks on an event\'s ‘show details’ button', () => {
-
+        when('the user clicks on an event\'s ‘show details’ button', async () => {
+            const user = userEvent.setup();
+            const showDetails = EventComponent.queryByText('Show Details');
+            await user.click(showDetails);
         });
 
         then('the event details will expand.', () => {
-
+            expect(EventComponent.container.querySelector('.details')).toBeInTheDocument();
+            expect(EventComponent.queryByText('Hide Details')).toBeInTheDocument();
         });
     });
 
