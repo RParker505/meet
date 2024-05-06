@@ -6,5 +6,5 @@ Feature: Specify Number of Events
 
     Scenario: User can change the number of events displayed.
         Given the user is viewing the main page
-        When the user selects a number of events to display (15, for example)
-        Then the app will display the selected number of events (15).
+        When the user selects a number of events to display
+        Then the app will display the selected number of events.
