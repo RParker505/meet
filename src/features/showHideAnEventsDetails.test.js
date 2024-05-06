@@ -53,16 +53,26 @@ defineFeature(feature, test => {
     });
 
     test('User can collapse an event to hide details.', ({ given, when, then }) => {
-        given('the user is viewing expanded event details', () => {
-
+        let EventComponent;
+        let allEvents;
+        given('the user is viewing expanded event details', async () => {
+            const user = userEvent.setup();
+            allEvents = await getEvents();
+            EventComponent = render(<Event event={allEvents[0]}/>);
+            const showDetails = EventComponent.queryByText('Show Details');
+            await user.click(showDetails);
+            expect(EventComponent.container.querySelector('.details')).toBeInTheDocument();
         });
 
-        when('the user clicks on ‘hide details’ button', () => {
-
+        when('the user clicks on ‘hide details’ button', async () => {
+            const user = userEvent.setup();
+            const hideDetails = EventComponent.queryByText('Hide Details');
+            await user.click(hideDetails);
         });
 
         then('the event details will collapse/hide.', () => {
-
+            expect(EventComponent.container.querySelector('.details')).not.toBeInTheDocument();
+            expect(EventComponent.queryByText('Hide Details')).not.toBeInTheDocument();
         });
     });
 
