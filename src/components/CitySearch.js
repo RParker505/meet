@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 
-const CitySearch = ({allLocations, setCurrentCity}) => {
+const CitySearch = ({allLocations, setCurrentCity, setInfoAlert}) => {
     //showSuggestions is false by default - hide suggestion list to start
     const [showSuggestions, setShowSuggestions] = useState(false);
     //set state of input field so you can access its value
@@ -22,6 +22,14 @@ const CitySearch = ({allLocations, setCurrentCity}) => {
   
       setQuery(value);
       setSuggestions(filteredLocations);
+
+      let infoText;
+      if (filteredLocations.length === 0) {
+        infoText = "We can not find the city you are looking for. Please try another city."
+      } else {
+        infoText = ""
+      }
+      setInfoAlert(infoText);
     };
 
     const handleItemClicked = (event) => {
@@ -29,6 +37,7 @@ const CitySearch = ({allLocations, setCurrentCity}) => {
       setQuery(value);
       setShowSuggestions(false); // to hide the list
       setCurrentCity(value); // change the city
+      setInfoAlert(""); // set to null, keeps InfoAlert from showing
     };
     
     return (
