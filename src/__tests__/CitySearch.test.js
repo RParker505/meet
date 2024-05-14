@@ -10,7 +10,11 @@ describe('<CitySearch /> component', () => {
 
     let CitySearchComponent;
     beforeEach(() => {
-      CitySearchComponent = render(<CitySearch allLocations={[]} />);
+      CitySearchComponent = render(<CitySearch 
+        allLocations={[]} 
+        setCurrentCity={() => { }}
+        setInfoAlert={() => { }}
+      />);
     });
     
     //Check for element with 'textbox' role and 'city' class
