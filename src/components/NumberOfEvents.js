@@ -1,6 +1,6 @@
 // src/components/NumberOfEvents.js
 
-const NumberOfEvents = ({setCurrentNOE}) => {
+const NumberOfEvents = ({setCurrentNOE, setErrorAlert}) => {
     const handleInputChanged = (event) => {
         const value = event.target.value;
         console.log("Number is:", value);
@@ -9,9 +9,10 @@ const NumberOfEvents = ({setCurrentNOE}) => {
         if (!isNaN(value) && value > 0) {
             // Update the current number of events if the value is valid
             setCurrentNOE(value);
+            setErrorAlert("");
         } else {
-            // Default to a minimum of 1 event if invalid input
-            setCurrentNOE(1);
+            let errorText = "Only positive numbers are allowed.";
+            setErrorAlert(errorText);
         }
     }
 
