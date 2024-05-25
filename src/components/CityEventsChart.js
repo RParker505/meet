@@ -12,6 +12,12 @@ import {
 
 const CityEventsChart = ({allLocations, events}) => {
 
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        setData(getData());
+      }, [`${events}`]);
+
     //get number of events in each city and shorten each location to only the city
     const getData = () => {
         const data = allLocations.map((location) => {
