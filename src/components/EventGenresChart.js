@@ -49,9 +49,9 @@ const EventGenresChart = ({events}) => {
           <PieChart
               margin={{
                 top: 20,
-                right: 20,
+                right: 50,
                 bottom: 60,
-                left: 20,
+                left: 60,
               }}
           >
             <Pie
