@@ -11,6 +11,10 @@ body {background-color: azure;}
   box-sizing: border-box;
 }
 
+h1 {
+  text-align: center;
+}
+
 ul {
   padding: 0;
   list-style: none;
