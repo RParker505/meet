@@ -1,7 +1,7 @@
 // src/components/EventGenresChart.js
 
 import { useState, useEffect } from 'react';
-import { ResponsiveContainer, PieChart, Pie, Cell, Legend } from 'recharts';
+import { ResponsiveContainer, PieChart, Pie, Cell, Legend, Tooltip } from 'recharts';
 
 const EventGenresChart = ({events}) => {
 
@@ -26,26 +26,27 @@ const EventGenresChart = ({events}) => {
         return data;
     };
 
-    const renderCustomizedLabel = ({ cx, cy, midAngle, outerRadius, percent, index }) => {
-        const RADIAN = Math.PI / 180;
-        const radius = outerRadius;
-        const x = cx + radius * Math.cos(-midAngle * RADIAN) * 1.07;
-        const y = cy + radius * Math.sin(-midAngle * RADIAN) * 1.07;
-        return percent ? (
-          <text
-            x={x}
-            y={y}
-            fill="#8884d8"
-            textAnchor={x > cx ? 'start' : 'end'}
-            dominantBaseline="central"
-          >
-            {`${genres[index]} ${(percent * 100).toFixed(0)}%`}
-          </text>
+    const renderCustomizedLabel = ({ cx, cy, midAngle, outerRadius, innerRadius, percent, index }) => {
+      const RADIAN = Math.PI / 180;
+      const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+   
+      const x = cx + radius * Math.cos(-midAngle * RADIAN);
+      const y = cy + radius * Math.sin(-midAngle * RADIAN);
+      return percent ? (
+        <text
+          x={x}
+          y={y}
+          fill="white"
+          textAnchor={x > cx ? 'start' : 'end'}
+          dominantBaseline="central"
+        >
+          {` ${(percent * 100).toFixed(0)}%`}
+        </text>
         ) : null;
       };
 
     return (
-        <ResponsiveContainer width="90%" height={400}>
+        <ResponsiveContainer width="99%" height={400}>
           <PieChart
               margin={{
                 top: 20,
@@ -60,7 +61,8 @@ const EventGenresChart = ({events}) => {
               fill="#8884d8"
               labelLine={false}
               label={renderCustomizedLabel}
-              outerRadius={120}
+              cx="50%" cy="50%"
+              outerRadius={140}
             >
             {
                 data.map((entry, index) => (
@@ -68,7 +70,8 @@ const EventGenresChart = ({events}) => {
                     ))
                 }
             </Pie>
-            <Legend />       
+            <Legend />
+            <Tooltip cursor={{ strokeDasharray: "3 3" }} />       
           </PieChart>
         </ResponsiveContainer>
       );
